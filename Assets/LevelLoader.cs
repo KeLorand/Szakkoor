@@ -6,19 +6,18 @@ public class LevelLoader
 {
     public static void load(Level level)
     {
-        //GameObject asd = (GameObject)Resources.Load("Wall", typeof(GameObject));
+        Texture2D texture = new Texture2D(100, 100);
+        texture.LoadImage(System.IO.File.ReadAllBytes("Assets/Resources/icon.png"));
+        Debug.Log(texture.width);
         for (int i = 0; i <= level.blocks.GetUpperBound(0); i++)
         {
             for (int j = 0; j <= level.blocks.GetUpperBound(1); j++)
             {
-
-                //GameObject asd = (GameObject)(new Wall());
-                GameObject asd = new GameObject(""+i+":"+j);
-                SpriteRenderer sr = asd.AddComponent<SpriteRenderer>();
-                asd.GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("unity_builtin_extra/Knob", typeof(Sprite));
-                //Transform tr = asd.AddComponent<Transform>();
-                asd.transform.position = new Vector3(i, j, 100);
-
+                GameObject gobj = new GameObject(""+i+":"+j);
+                SpriteRenderer sr = gobj.AddComponent<SpriteRenderer>();
+                //sr.sprite = Resources.Load<Sprite>("Circle"); //Így is jó!
+                sr.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f), Mathf.Max(texture.width, texture.height));
+                gobj.transform.position = new Vector3(i * 1f, j * 1f, 100);
             }
         }
     }
