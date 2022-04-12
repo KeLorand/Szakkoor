@@ -10,7 +10,7 @@ public class LevelLoader
         {
             for (int y = 0; y <= level.blocks.GetUpperBound(1); y++)
             {
-                new Wall(new Block(7), x - 5, y - 3);
+                new Wall(level.blocks[x, y], x - 5, y - 3);
             }
         }
     }

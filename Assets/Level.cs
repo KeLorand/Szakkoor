@@ -12,7 +12,7 @@ public class Level
         {
             for (int j = 0; j <= blocks.GetUpperBound(1); j++)
             {
-                blocks[i, j] = new Block(0);
+                blocks[i, j] = new Block(Random.Range(0,16));
             }
         }
     }
@@ -37,7 +37,7 @@ public class Level
         {
             for (int j = 0; j <= blocks.GetUpperBound(1); j++)
             {
-                s += blocks[i, j] = new Block(0);
+                s += blocks[i, j].ToString() + (blocks[i, j].ToString().Length == 1 ? "  " : " ");
             }
             s += "\n";
         }

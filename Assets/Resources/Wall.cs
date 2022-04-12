@@ -7,8 +7,10 @@ public class Wall// : MonoBehaviour
     public enum Pos{
         top, bottom, left, right
     }
-    Block m_block = new Block(0);
+
     static Texture2D texture = null;
+
+    Block m_block = new Block(0);
 
     int x, y;
 
@@ -22,7 +24,7 @@ public class Wall// : MonoBehaviour
         if (texture == null) {
             texture = new Texture2D(128, 128);
             texture.LoadImage(System.IO.File.ReadAllBytes("Assets/Resources/icon.png"));
-            Debug.Log(texture.width);
+            //Debug.Log(texture.width);
         }
         this.x = x;
         this.y = y;
@@ -68,9 +70,9 @@ public class Wall// : MonoBehaviour
             return m_block; 
         }
         set {
-            Debug.Log(m_block.top);
+            /*Debug.Log(m_block.top);
             Debug.Log(value.top);
-            Debug.Log(value.ToString());
+            Debug.Log(value.ToString());*/
             if (m_block.top && !value.top) Object.Destroy(top);
             if (!m_block.top && value.top) Create(Pos.top);
             if (m_block.bottom && !value.bottom) Object.Destroy(bottom);
