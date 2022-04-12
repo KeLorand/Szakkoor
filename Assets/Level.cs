@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Level
 {
-    public Block[,] blocks = new Block[6, 11];
+    public Block[,] blocks = new Block[11, 6];
 
     public void Clear()
     {

@@ -25,21 +25,21 @@ public class Block
 
     public bool left
     {
-        get { return (data & 1) == 1; }
+        get { return (data & (byte)1) == (byte)1; }
     }
     public bool right
     {
-        get { return (data & 2) == 2; }
+        get { return (data & (byte)2) == (byte)2; }
     }
 
     public bool top
     {
-        get { return (data & 4) == 4; }
+        get { return (data & (byte)4) == (byte)4; }
     }
 
     public bool bottom
     {
-        get { return (data & 8) == 8; }
+        get { return (data & (byte)8) == (byte)8; }
     }
 
     public override string ToString()
